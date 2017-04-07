@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="product-list-header col-sm-12 col-md-10 col-md-offset-1">
+        <br/>
+        <br/>
+        <br/>
+        <div class="col-sm-6 ">
+            <h2>Productos para la venta</h2>
+        </div>
+        <div class="col-sm-6 ">
+        
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="product-list col-sm-12 col-md-10 col-md-offset-1">
+                <div class="row product-item" *ngFor="let product of products" [class.selected]="product === selectedProduct" (click)="onSelect(product)">
+            <div class="col-sm-6">
+                <h3>{{product.description}}</h3>
+                <div class="stockstatus small">
+                    <span class="stockstatus-availability-label">Productos Disponibles:</span>
+                    <span class="stockstatus-stock-details">{{product.stockQuantity}} articulos</span>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                 <img style="height: 200px; width: 200px" src="{{product.image}}" />
+            </div>
+            <div class="col-sm-2">
+                <div class="row">
+                    <p class="product-price-now">Precio: $ {{product.price}}</p>
+                </div>
+                <div class="row">
+                    <button class="add-to-cart-button" (click)="appendItem(product)">Agregar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
